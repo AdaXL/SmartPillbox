@@ -4,3 +4,5 @@ a smart pillbox which could personalize the settings and remind people to take p
 
 Implemented an interface with Django framework for data input, with AWS as the server, and
 raspberry pi as the controller
+
+Contributed by a group of 4 members in BIC program.
