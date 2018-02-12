@@ -1,0 +1,11 @@
+<h1>{{ patient.patient_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'timeset:setting' patient.id %}" method="post">
+{% csrf_token %}
+{% for medicine in patient.medicine_set.all %}
+    <label for="medicine{{ forloop.counter }}">{{ medicine.medicine_text }}</label>
+    <input type="text" name="medicine{{forloop.counter}}" id="medicine{{forloop.counter}}"/><br/>
+{% endfor %}
+<input type="submit" value="Submit" />
+</form>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pill Box Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://ajax.htmlnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+</script>
+</head>
+<body>
+
+<div class="container">
+    <div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid #EE872A;">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3>Pill Box 1.0</h3>
+            <div class="tabbable" id="tabs-647325">
+
+
+                <ul class="nav nav-tabs">
+                    
+                    <li class="active">
+                         <a href="#panel-77062" data-toggle="tab">Setting</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="panel-77062">
+                        <p>
+                            <h4>You are going to set the patient: <strong>{{ patient.patient_name }}</strong></h4>
+                            <br>
+                            <div class="row clearfix">
+                                <div class="col-md-8 column">
+                                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                                    <form action="{% url 'timeset:set' patient.id %}" method="post">
+                                        {% csrf_token %}
+                                        {% for medicine in patient.medicine_set.all %}
+                                            <label for="medicine{{ forloop.counter }}">{{ medicine.medicine_text }}: </label>
+                                            <input type="text" name="medicine{{forloop.counter}}" id="medicine{{forloop.counter}}"/><br/>
+                                        {% endfor %}
+                                        <input type="submit" value="Submit" />
+                                    </form>
+                                </div>
+                            
+                                <div class="row clearfix">
+                                    <div class="col-md-4 column">        
+                                        <div class="jumbotron">
+                                            <h4>
+                                                Thank you for your attention!
+                                            </h4>
+                                            <hr>
+                                                You patient keep on taking pills for five days!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+            </div>
+                <div class="col-md-4 column">
+                    <strong><a href="{% url 'timeset:setting' patient.id %}" class="center">Set time</a> | <a href="{% url 'timeset:index' %}">Back to all patients</a></strong>
+                </div>
+            <div class="col-md-4 column">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+

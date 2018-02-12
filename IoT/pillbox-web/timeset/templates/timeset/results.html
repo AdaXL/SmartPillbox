@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pill Box Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://ajax.htmlnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+</script>
+</head>
+<body>
+
+<div class="container">
+    <div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid #EE872A;">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3>Pill Box 1.0</h3>
+            <div class="tabbable" id="tabs-647325">
+
+
+                <ul class="nav nav-tabs">
+                    
+                    <li class="active">
+                         <a href="#panel-77062" data-toggle="tab">Review Setting</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="panel-77062">
+                        <p>
+                            <h4>This is the eating reports of the patient: <strong>{{ patient.patient_name }}</strong></h4>
+                            <br>
+                            <div class="row clearfix">
+                                <div class="col-md-8 column">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Pill Name
+                                                </th>
+                                                <th>
+                                                    Eat Time
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for medicine in patient.medicine_set.all %}
+                                            <tr class="success">
+                                                <td>
+                                                    {{ medicine.medicine_text }}
+                                                </td>
+                                                <td>
+                                                    {{ medicine.time }}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            
+                                <div class="row clearfix">
+                                    <div class="col-md-4 column">        
+                                        <div class="jumbotron">
+                                            <h4>
+                                                Thank you for your attention!
+                                            </h4>
+                                            <hr>
+                                                You patient keep on taking pills for five days!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </p>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+            </div>
+                <div class="col-md-4 column">
+                    <strong><a href="{% url 'timeset:setting' patient.id %}" class="center">Set time</a> | <a href="{% url 'timeset:index' %}">Back to all patients</a></strong>
+                </div>
+            <div class="col-md-4 column">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+

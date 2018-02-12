@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pill Box Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://ajax.htmlnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $("#Yichi").click(function(){
+            $("#Patient_b").text("Yichi Zhang");
+        });
+
+        $("#Zheng").click(function(){
+            $("#Patient_b").text("Zheng Zhang");
+        });
+
+        $("#Xiaoyu").click(function(){
+            $("#Patient_b").text("Xiaoyu Zhou");
+        });
+
+        $("#Xiang").click(function(){
+            $("#Patient_b").text("Xiang Li");
+        });
+
+        $("#Boyu").click(function(){
+            $("#Patient_b").text("Boyu Liu");
+        });
+    });
+</script>
+</head>
+<body>
+
+<div class="container">
+    <div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid #EE872A;">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3>Pill Box 1.0</h3>
+            <div class="tabbable" id="tabs-647325">
+
+
+                <ul class="nav nav-tabs">
+                    
+                    <li class="active">
+                         <a href="#panel-77062" data-toggle="tab">Review Reports</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="panel-77062">
+                        <p>
+                            <h4>This is the eating reports of the patient: Xiaoyu Zhou</h4>
+                            <div class="row clearfix">
+                                <div class="col-md-8 column">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Number
+                                                </th>
+                                                <th>
+                                                    Pill Name
+                                                </th>
+                                                <th>
+                                                    Eat Time
+                                                </th>
+                                                <th>
+                                                    Status
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="success">
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    Norfloxacin
+                                                </td>
+                                                <td>
+                                                    01/04/2017
+                                                </td>
+                                                <td>
+                                                    Normal
+                                                </td>
+                                            </tr>
+                                            <tr class="warning">
+                                                <td>
+                                                    2
+                                                </td>
+                                                <td>
+                                                    Norfloxacin
+                                                </td>
+                                                <td>
+                                                    01/05/2017
+                                                </td>
+                                                <td>
+                                                    Not Eated
+                                                </td>
+                                            </tr>
+                                            <tr class="warning">
+                                                <td>
+                                                    3
+                                                </td>
+                                                <td>
+                                                    Norfloxacin
+                                                </td>
+                                                <td>
+                                                    01/06/2017
+                                                </td>
+                                                <td>
+                                                    Not Eated
+                                                </td>
+                                            </tr>
+                                            <tr class="success">
+                                                <td>
+                                                    4
+                                                </td>
+                                                <td>
+                                                    Norfloxacin
+                                                </td>
+                                                <td>
+                                                    01/07/2017
+                                                </td>
+                                                <td>
+                                                    Normal
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            
+                                        
+                                <div class="col-md-4 column">
+                                    <div class="btn-group">
+                                        <h3>Please select the patient:</h3>
+                                        <button class="btn btn-default" id="Patient_b">Patients</button> <button data-toggle="dropdown" class="btn btn-info dropdown-toggle"><span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            {% for patient in patient_list %}
+                                                <li class="enabled" id="{{patient.patient_name}}"><a href="{% url 'timeset:results' patient.id %}">{{ patient.patient_name}}</a></li>
+                                            {% endfor %}
+
+                                            <li class="enabled" id="Yichi">
+                                                 <a href="#Yichi">Yichi Zhang</a>
+                                            </li>
+                                            <li class="enabled" id="Xiaoyu">
+                                                 <a href="#Xiaoyu">Xiaoyu Zhou</a>
+                                            </li>
+                                            <li class="enabled" id="Zheng">
+                                                 <a href="#Zheng">Zheng Zhang</a>
+                                            </li>
+                                            <li class="enabled" id="Xiang">
+                                                 <a href="#Xiang">Xiang Li</a>
+                                            </li>
+                                            <li class="enabled" id="Boyu">
+                                                 <a href="#Boyu">Boyu Liu</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </p>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
